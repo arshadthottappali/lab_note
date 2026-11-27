@@ -105,6 +105,12 @@ Registering an instrument creates its digital record: identity, access, booking,
 - **QR code on the instrument:** scan → opens your current booking or entry → upload a file or a photo of the screen or printout
 - **Manual entry:** type readings into the setup's template fields
 - **Matching by booking:** on upload, the ELN suggests the matching booking and experiment (who, which instrument, when)
+- **Booking → entry → data follow-up:**
+  - An entry is linked to its booking; a booking without an entry gets a draft entry automatically
+  - When the booking ends, the ELN asks for the data: upload, QR/phone, enter values, or "no data" with a reason
+  - Until then the entry shows **Data pending**, with reminders later that day and the next morning
+  - Experiments without a booking: the ELN asks "Any data to add?" when the entry is marked done
+  - Setup Managers see "booked but no data uploaded"; PIs see it only if lab policy allows
 - **Raw file kept unchanged:** the original is stored with a checksum; analysis uses a copy
 
 ### 3.5 Analysis
