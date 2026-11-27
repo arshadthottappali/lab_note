@@ -116,6 +116,16 @@ Registering an instrument creates its digital record: identity, access, booking,
   - Setup Managers see "booked but no data uploaded"; PIs see it only if lab policy allows
 - **Raw file kept unchanged:** the original is stored with a checksum; analysis uses a copy
 
+### 3.4c Data storage
+- Everything is saved in the cloud, not locally
+  - Entries, notes, fields, bookings and fit results go in the database (managed PostgreSQL)
+  - Data files, images and PDFs go in cloud object storage
+- Large files upload straight to storage; a per-file limit applies (e.g. 2 GB)
+- Very large data (imaging stacks, videos) can be **linked** instead of uploaded: the file stays on institute storage, and the ELN keeps the link, checksum and a preview
+- Per-lab storage quota, with usage shown to the PI
+- Automatic backups; a lab can export all its data at any time
+- Version 2: offline upload queue on phones
+
 ### 3.5 Analysis
 - Data preview, then pick X and Y columns, then plot
 - Standard fits: linear, polynomial, exponential, power law, Gaussian and Lorentzian peaks, Arrhenius, custom equation
