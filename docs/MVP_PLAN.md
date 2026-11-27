@@ -89,6 +89,24 @@ Rules:
 - Private, or shared with the lab
 - Search across titles, notes, tags and field values
 
+### 3.4a Note editor and import
+- Note editor in the style of Notion and Obsidian:
+  - Markdown-based (plain text, never locked in)
+  - Blocks: headings, checklists, tables, images, code, LaTeX equations, callouts
+- `[[links]]` between notes and entries, with backlinks
+- Embed data plots, fit results and bookings in notes
+- Templates (e.g. "Daily lab note", "Experiment write-up")
+- **Import:** an Obsidian vault (Markdown + attachments) and Notion's Markdown/CSV export
+- The ELN is the main record. External apps get copies; anything synced back comes in as a new, timestamped version.
+
+### 3.4b Getting data from instruments (most are offline)
+Registering an instrument creates its digital record: identity, access, booking, template and where its data goes. Moving the data itself is a separate step that must work without internet on the instrument.
+- **Manual upload:** USB → upload to the entry from any computer or phone
+- **QR code on the instrument:** scan → opens your current booking or entry → upload a file or a photo of the screen or printout
+- **Manual entry:** type readings into the setup's template fields
+- **Matching by booking:** on upload, the ELN suggests the matching booking and experiment (who, which instrument, when)
+- **Raw file kept unchanged:** the original is stored with a checksum; analysis uses a copy
+
 ### 3.5 Analysis
 - Data preview, then pick X and Y columns, then plot
 - Standard fits: linear, polynomial, exponential, power law, Gaussian and Lorentzian peaks, Arrhenius, custom equation
@@ -119,7 +137,7 @@ Rules:
 | Week | Build | Done when |
 |---|---|---|
 | **1** | Project setup, login, labs, roles (PI, Lab Manager, Setup Manager, Member), invites and join requests, setup registry with custom fields | A lab can be created, a member invited, and a setup registered with its own fields and manager |
-| **2** | Experiment entries, file upload, history, sharing, search | A real experiment can be recorded with its data files |
+| **2** | Experiment entries, note editor (Markdown/blocks, `[[links]]`, templates), Obsidian and Notion import, file upload (USB/phone/QR), manual entry, booking matching, history, sharing, search | A real experiment can be recorded with its data files and old notes imported |
 | **3** | Analysis (plots and fit library); booking calendar, certificates, outside access requests, usage log | Real data (e.g. LCR or I-V) can be fitted, and a shared setup booked by a certified user |
 | **4** | AI features (suggest fit, explain, next experiment, daily summary with both sharing flows), polish, pilot | Pilot lab members use it for a week and give feedback |
 
@@ -143,6 +161,12 @@ Rules:
 - PI agent: status questions about members' work (within their sharing), blocker detection, meeting prep and calendar scheduling
 - Waitlists and fair-use limits for booking
 - Booking-ID login on instrument PCs, with automatic data upload from instrument software
+- Automatic instrument data transfer:
+  - **Watched folder:** an instrument PC on the local network saves to a shared folder, and a connected PC uploads new files
+  - **Sync agent:** a small app on the instrument PC queues files while offline and uploads them when connected
+  - **Bridge device:** a Raspberry Pi next to an offline instrument uploads its files over Wi-Fi or Ethernet
+  - **Direct API:** homemade instrument software (e.g. the LCR app) uploads straight to the ELN
+- Notes: Evernote (`.enex`) import, Notion API sync, Obsidian plugin, export to Markdown or PDF
 - Library of setup templates (LCR, I-V, UV-Vis, XRD, …)
 - Export in open formats (JSON, CSV, PDF, RO-Crate) and an API
 - Institute-level Super Admin; transfer of lab ownership
