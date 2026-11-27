@@ -124,7 +124,14 @@ Registering an instrument creates its digital record: identity, access, booking,
 - Very large data (imaging stacks, videos) can be **linked** instead of uploaded: the file stays on institute storage, and the ELN keeps the link, checksum and a preview
 - Per-lab storage quota, with usage shown to the PI
 - Automatic backups; a lab can export all its data at any time
-- Version 2: offline upload queue on phones
+- **Google Drive connection (to keep the MVP free):**
+  - Signing in with Google does not grant Drive access. The user clicks **Connect Google Drive** and approves it.
+  - Narrow scope (`drive.file`): the ELN sees only the files it created
+  - Hybrid: entries, previews and small files (<~10 MB) stay in ELN storage (free tier); large raw files and images go to the user's or lab's Drive
+  - A lab **Shared Drive** (Google Workspace) is preferred, so data stays with the lab when a member leaves
+  - The checksum detects files edited or deleted in Drive, and the entry shows "file changed/missing"
+  - If an institution blocks Drive apps, fall back to ELN storage
+- Version 2: paid ELN storage tiers; OneDrive, Dropbox and institute server connections; offline upload queue on phones
 
 ### 3.5 Analysis
 - Data preview, then pick X and Y columns, then plot
