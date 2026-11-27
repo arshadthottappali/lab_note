@@ -77,6 +77,9 @@ Rules:
 - Certificate required: yes or no
 - **Visibility:** lab only, or shared with other labs
 - Status: available, under maintenance, or out of order (blocks booking)
+- **QR label:** the ELN generates a QR per setup and the manager prints it as a sticker for the instrument
+  - Scanning it with a phone camera opens the ELN (login required) and shows your current booking/entry, otherwise the setup page (status, calendar, book, request access)
+  - The QR is only a link; access still needs login and permission
 
 ### 3.3 Certificates and access
 - The manager picks **certified users** from the lab member list, with an optional expiry and an optional certificate file
